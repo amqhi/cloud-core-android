@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.22.1)
 
 project("cloud_core")
 
-set(CMAKE_CXX_STANDARD 22)
+set(CMAKE_CXX_STANDARD 20)
 
 include(FetchContent)
 
