@@ -13,13 +13,6 @@ class CachedState {
 
     private external fun save(ptr: Long)
     fun save() = save(pointer)
-    private external fun getSortOption(ptr: Long, idHigh: Long, idLow: Long): Char
-
-    fun getSortOption(folderId: UUID) : Char = getSortOption(pointer, folderId.mostSignificantBits, folderId.leastSignificantBits)
-
-    private external fun getViewMode(ptr: Long, idHigh: Long, idLow: Long): Char
-
-    fun getViewMode(folderId: UUID) : Char = getSortOption(pointer, folderId.mostSignificantBits, folderId.leastSignificantBits)
 
     private external fun getLastUpdateCheck(ptr: Long) : Long
     fun getLastUpdateCheck() : Long = getLastUpdateCheck(pointer)

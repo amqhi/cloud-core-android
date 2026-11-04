@@ -39,6 +39,14 @@ class ItemManager {
     fun getFileMetadataById(idHigh: Long, idLow: Long): FileMetadata = getFileMetadataById(pointer, idHigh, idLow)
     fun getFileMetadataById(id: UUID): FileMetadata = getFileMetadataById(pointer, id.mostSignificantBits, id.leastSignificantBits)
 
+    private external fun getFolderViewModeById(ptr: Long, idHigh: Long, idLow: Long): Char
+
+    fun getFolderViewModeById(folderId: UUID) : Char = getFolderViewModeById(pointer, folderId.mostSignificantBits, folderId.leastSignificantBits)
+
+    private external fun getFolderSortOptionById(ptr: Long, idHigh: Long, idLow: Long): Char
+
+    fun getFolderSortOptionById(folderId: UUID) : Char = getFolderSortOptionById(pointer, folderId.mostSignificantBits, folderId.leastSignificantBits)
+
     private external fun downloadItem(ptr: Long, idHigh: Long, idLow: Long, filePath: String)
 
     /** Downloads a file for export. The file path must be a temporary path for downloading. If the file is already available offline, it is copied to the temporary path instead of being downloaded. */
