@@ -29,6 +29,7 @@ import java.io.IOException
 import java.util.UUID
 import java.util.concurrent.CopyOnWriteArrayList
 import java.util.concurrent.TimeUnit
+import com.amqhi.shared.core.NetworkCallback
 
 interface FileProgressListener {
     fun onDownloadStarted(itemId: UUID, parentId: UUID) {}

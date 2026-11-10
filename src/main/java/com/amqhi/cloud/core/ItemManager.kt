@@ -7,6 +7,11 @@
 package com.amqhi.cloud.core
 
 import com.amqhi.cloud.core.Core.pointer
+import com.amqhi.shared.core.FileMetadata
+import com.amqhi.shared.core.FolderMetadata
+import com.amqhi.shared.core.Item
+import com.amqhi.shared.core.ItemAttributes
+import com.amqhi.shared.core.ItemSummary
 import java.util.UUID
 
 class ItemManager {

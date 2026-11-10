@@ -6,6 +6,8 @@
 
 package com.amqhi.cloud.core
 
+import com.amqhi.shared.core.User
+
 object Core {
     var pointer: Long = 0L
     lateinit var notifier: Notifier

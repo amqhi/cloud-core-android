@@ -82,6 +82,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":shared-core"))
     //noinspection UseTomlInstead
     if(minimumSdkVersion >= 24) {
         implementation("androidx.core:core-ktx:1.19.0")
