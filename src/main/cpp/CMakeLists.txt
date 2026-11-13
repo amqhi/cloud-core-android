@@ -4,32 +4,26 @@ project("cloud_core")
 
 set(CMAKE_CXX_STANDARD 20)
 
-include(FetchContent)
 
-if(NOT DEFINED SHARED_SOURCES_CMAKE_PATH)
-    FetchContent_Declare(
-            shared_core
-            GIT_REPOSITORY "https://github.com/amqhi/shared-core.git"
-            GIT_TAG        main
-    )
-    FetchContent_MakeAvailable(shared_core)
-    set(SHARED_SOURCES_CMAKE_PATH "${shared_core_SOURCE_DIR}/sources.cmake")
-endif()
+if(DEFINED SHARED_SOURCES_CMAKE_PATH)
 
 include(${SHARED_SOURCES_CMAKE_PATH})
 
+else()
 
-if(NOT DEFINED CLOUD_SOURCES_CMAKE_PATH)
-    FetchContent_Declare(
-            cloud_core
-            GIT_REPOSITORY "https://github.com/amqhi/cloud-core.git"
-            GIT_TAG        main
-    )
-    FetchContent_MakeAvailable(cloud_core)
-    set(CLOUD_SOURCES_CMAKE_PATH "${cloud_core_SOURCE_DIR}/sources.cmake")
+include("../../../shared-core/sources.cmake")
+
 endif()
 
+if(DEFINED CLOUD_SOURCES_CMAKE_PATH)
+
 include(${CLOUD_SOURCES_CMAKE_PATH})
+
+else()
+
+include("../../../core/sources.cmake")
+
+endif()
 
 add_library(${CMAKE_PROJECT_NAME} SHARED
     ${SHARED_SOURCES}
